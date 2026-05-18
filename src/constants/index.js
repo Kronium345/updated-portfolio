@@ -35,6 +35,34 @@ export const clientReviews = [
 
 export const myProjects = [
   {
+    title: 'Agile Athletes - Your All-in-One Fitness Companion',
+    desc: 'Agile Athletes is your all-in-one fitness companion for building consistency, improving performance, and tracking real progress. Now live on the Apple App Store.',
+    subdesc:
+      'Whether you\'re just getting started or refining your routine, Agile Athletes helps you discover exercises, structure workouts, and stay accountable with simple, actionable tracking. Built with React Native and Expo; a Google Play release is coming soon.',
+    href: 'https://apps.apple.com/gb/app/agile-athletes/id6758623960',
+    linkLabel: 'View on App Store',
+    imageShowcase: '/assets/aa-feature-graphic.png',
+    logo: '/assets/aa-logo.png',
+    logoStyle: {
+      backgroundColor: '#FFFFFF',
+      border: '0.2px solid #E8E8E8',
+      boxShadow: '0px 0px 60px 0px #FF6B354D',
+    },
+    spotlight: '/assets/spotlight1.png',
+    tags: [
+      {
+        id: 1,
+        name: 'React Native',
+        path: '/assets/react-native.svg',
+      },
+      {
+        id: 2,
+        name: 'Expo',
+        path: '/assets/expo.svg',
+      },
+    ],
+  },
+  {
     title: 'RAMI Group Website - City, University of London',
     desc: 'This is a website I created and revamped for the RAMI (Robotic, Autonomy and Machine Intelligence) Group of my university, City, University of London. This was done at the behest of Professor Nabil Aouf, Professor of Autonomous Systems and Machine Intelligence, whom I worked very closely with at my time on the Sapience project.',
     subdesc:

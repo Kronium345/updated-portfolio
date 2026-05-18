@@ -25,6 +25,7 @@ const Projects = () => {
 
   useGSAP(() => {
     gsap.fromTo(`.animatedText`, { opacity: 0 }, { opacity: 1, duration: 1, stagger: 0.2, ease: 'power2.inOut' });
+    gsap.fromTo(`.projectShowcase`, { opacity: 0, scale: 0.96 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'power2.out' });
   }, [selectedProjectIndex]);
 
   const currentProject = myProjects[selectedProjectIndex];
@@ -40,7 +41,11 @@ const Projects = () => {
           </div>
 
           <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
-            <img className="w-10 h-10 shadow-sm" src={currentProject.logo} alt="logo" />
+            <img
+              className={currentProject.logoClassName ?? 'w-10 h-10 shadow-sm object-contain'}
+              src={currentProject.logo}
+              alt="logo"
+            />
           </div>
 
           <div className="flex flex-col gap-5 text-white-600 my-5">
@@ -64,7 +69,7 @@ const Projects = () => {
               href={currentProject.href}
               target="_blank"
               rel="noreferrer">
-              <p>Check Live Site</p>
+              <p>{currentProject.linkLabel ?? 'Check Live Site'}</p>
               <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
             </a>
           </div>
@@ -80,19 +85,34 @@ const Projects = () => {
           </div>
         </div>
 
-        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
-          <Canvas>
-            <ambientLight intensity={Math.PI} />
-            <directionalLight position={[10, 10, 5]} />
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
-                  <DemoComputer texture={currentProject.texture} />
-                </group>
-              </Suspense>
-            </Center>
-            <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
-          </Canvas>
+        <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full overflow-hidden">
+          {currentProject.imageShowcase ? (
+            <a
+              href={currentProject.href}
+              target="_blank"
+              rel="noreferrer"
+              className="projectShowcase flex h-full w-full items-center justify-center p-4 sm:p-6"
+              aria-label={currentProject.linkLabel ?? 'View project'}>
+              <img
+                src={currentProject.imageShowcase}
+                alt={currentProject.title}
+                className="max-h-full w-full rounded-xl object-contain shadow-2xl"
+              />
+            </a>
+          ) : (
+            <Canvas>
+              <ambientLight intensity={Math.PI} />
+              <directionalLight position={[10, 10, 5]} />
+              <Center>
+                <Suspense fallback={<CanvasLoader />}>
+                  <group scale={2} position={[0, -3, 0]} rotation={[0, -0.1, 0]}>
+                    <DemoComputer texture={currentProject.texture} />
+                  </group>
+                </Suspense>
+              </Center>
+              <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+            </Canvas>
+          )}
         </div>
       </div>
     </section>
