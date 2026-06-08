@@ -64,14 +64,21 @@ const Projects = () => {
               ))}
             </div>
 
-            <a
-              className="flex items-center gap-2 cursor-pointer text-white-600"
-              href={currentProject.href}
-              target="_blank"
-              rel="noreferrer">
-              <p>{currentProject.linkLabel ?? 'Check Live Site'}</p>
-              <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
-            </a>
+            <div className="flex items-center gap-4 flex-wrap">
+              {(currentProject.links ?? [{ href: currentProject.href, label: currentProject.linkLabel ?? 'Check Live Site' }]).map(
+                (link) => (
+                  <a
+                    key={link.href}
+                    className="flex items-center gap-2 cursor-pointer text-white-600"
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer">
+                    <p>{link.label}</p>
+                    <img src="/assets/arrow-up.png" alt="arrow" className="w-3 h-3" />
+                  </a>
+                ),
+              )}
+            </div>
           </div>
 
           <div className="flex justify-between items-center mt-7">
@@ -88,11 +95,11 @@ const Projects = () => {
         <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full overflow-hidden">
           {currentProject.imageShowcase ? (
             <a
-              href={currentProject.href}
+              href={(currentProject.links ?? [{ href: currentProject.href }])[0].href}
               target="_blank"
               rel="noreferrer"
               className="projectShowcase flex h-full w-full items-center justify-center p-4 sm:p-6"
-              aria-label={currentProject.linkLabel ?? 'View project'}>
+              aria-label={(currentProject.links ?? [{ label: currentProject.linkLabel }])[0].label ?? 'View project'}>
               <img
                 src={currentProject.imageShowcase}
                 alt={currentProject.title}

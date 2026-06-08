@@ -36,11 +36,19 @@ export const clientReviews = [
 export const myProjects = [
   {
     title: 'Agile Athletes - Your All-in-One Fitness Companion',
-    desc: 'Agile Athletes is your all-in-one fitness companion for building consistency, improving performance, and tracking real progress. Now live on the Apple App Store.',
+    desc: 'Agile Athletes is your all-in-one fitness companion for building consistency, improving performance, and tracking real progress. Now live on the Apple App Store & Google Play Store.',
     subdesc:
-      'Whether you\'re just getting started or refining your routine, Agile Athletes helps you discover exercises, structure workouts, and stay accountable with simple, actionable tracking. Built with React Native and Expo; a Google Play release is coming soon.',
-    href: 'https://apps.apple.com/gb/app/agile-athletes/id6758623960',
-    linkLabel: 'View on App Store',
+      'Whether you\'re just getting started or refining your routine, Agile Athletes helps you discover exercises, structure workouts, and stay accountable with simple, actionable tracking. Built with React Native and Expo, and now available on both the Apple App Store and Google Play Store.',
+    links: [
+      {
+        href: 'https://apps.apple.com/gb/app/agile-athletes/id6758623960',
+        label: 'View on App Store',
+      },
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.kroniumtech.agileathletes',
+        label: 'View on Google Play',
+      },
+    ],
     imageShowcase: '/assets/aa-feature-graphic.png',
     logo: '/assets/aa-logo.png',
     logoStyle: {
