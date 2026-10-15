@@ -41,6 +41,10 @@ export const myProjects = [
       'Whether you\'re just getting started or refining your routine, Agile Athletes helps you discover exercises, structure workouts, and stay accountable with simple, actionable tracking. Built with React Native and Expo, and now available on both the Apple App Store and Google Play Store.',
     links: [
       {
+        href: 'https://www.agileathletes.app/',
+        label: 'Visit Website',
+      },
+      {
         href: 'https://apps.apple.com/gb/app/agile-athletes/id6758623960',
         label: 'View on App Store',
       },
