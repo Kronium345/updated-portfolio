@@ -4,6 +4,7 @@ import { workExperiences } from '../constants';
 import CanvasLoader from '../components/CanvasLoader'
 import Developer from '../components/Developer';
 import { OrbitControls } from '@react-three/drei';
+import WebGLBoundary from '../components/WebGLBoundary'
 
 
 
@@ -15,6 +16,7 @@ const Experience = () => {
             <h3 className="head-text">My Work Experience</h3>
             <div className="work-container">
                 <div className="work-canvas h-full min-h-[clamp(300px,48vh,720px)] w-full [&_canvas]:h-full [&_canvas]:w-full [&_canvas]:block">
+                    <WebGLBoundary>
                     <Canvas
                         className="h-full w-full"
                         gl={{ alpha: true, antialias: true }}
@@ -35,6 +37,7 @@ const Experience = () => {
                             <Developer position={[0, 0, 0]} scale={1.58} animationName={animationName} />
                         </Suspense>
                     </Canvas>
+                    </WebGLBoundary>
                 </div>
                 <div className="work-content">
                     <div className="sm:py-10 py-5 sm:px-5 px-2.5">

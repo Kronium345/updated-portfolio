@@ -1,6 +1,19 @@
 import React, { useState } from 'react';
 import Globe from 'react-globe.gl';
 import Button from '../components/Button'
+import WebGLBoundary from '../components/WebGLBoundary'
+
+const EARTH_TEXTURE = 'https://unpkg.com/three-globe/example/img/earth-day.jpg';
+
+// Pure-CSS spinning globe shown when WebGL is unavailable/blocked.
+const GlobeFallback = () => (
+  <div
+    className="globe-fallback"
+    style={{ backgroundImage: `url(${EARTH_TEXTURE})` }}
+    role="img"
+    aria-label="Rotating globe"
+  />
+);
 
 
 const About = () => {
@@ -40,16 +53,18 @@ const About = () => {
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-              <Globe
-                height={326}
-                width={326}
-                backgroundColor='rgba(0, 0, 0, 0)'
-                backgroundImageOpacity={0.5}
-                showAtmosphere
-                showGraticules
-                globeImageUrl="//unpkg.com/three-globe/example/img/earth-day.jpg"
-                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-              />
+              <WebGLBoundary fallback={<GlobeFallback />}>
+                <Globe
+                  height={326}
+                  width={326}
+                  backgroundColor='rgba(0, 0, 0, 0)'
+                  backgroundImageOpacity={0.5}
+                  showAtmosphere
+                  showGraticules
+                  globeImageUrl={EARTH_TEXTURE}
+                  bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"
+                />
+              </WebGLBoundary>
             </div>
             <div>
               <p className="grid-headtext">I can work remotely, hybrid or on-site.</p>

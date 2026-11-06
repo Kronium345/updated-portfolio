@@ -12,6 +12,7 @@ import Cube from '../components/Cube';
 import Rings from '../components/Rings'
 import HeroCamera from '../components/HeroCamera';
 import Button from '../components/Button'
+import WebGLBoundary from '../components/WebGLBoundary'
 
 const Hero = () => {
   // const controls = useControls('HackerRoom', {
@@ -72,6 +73,7 @@ const Hero = () => {
 
       <div className="w-full h-full absolute inset-0">
       {/* <Leva /> */}
+        <WebGLBoundary>
         <Canvas className="w-full h-full">
             <Suspense fallback={<CanvasLoader />}>
               <PerspectiveCamera makeDefault position={[0, 0, 20]} />
@@ -95,6 +97,7 @@ const Hero = () => {
               <directionalLight position={[10, 10, 10]} intensity={0.5} />
             </Suspense>
         </Canvas>
+        </WebGLBoundary>
       </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">

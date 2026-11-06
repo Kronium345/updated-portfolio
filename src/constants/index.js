@@ -75,6 +75,43 @@ export const myProjects = [
     ],
   },
   {
+    title: 'Havenly - Holiday Rentals in One Sentence',
+    desc: 'Havenly is a holiday rental app where guests describe the stay they want in one sentence, such as "quiet pet friendly cabin with a hot tub under £300 a night", and get stays that actually fit. Now live on the Google Play Store.',
+    subdesc:
+      'Guests can ask questions about any stay and get answers quoted word for word from its own details and policies, then book and pay by card and manage their trips. Hosts manage their stays, bookings and payouts in the same app. Built with React Native, Expo and TypeScript, with Sanity, Stripe and Clerk behind it, and coming soon to the Apple App Store.',
+    links: [
+      {
+        href: 'https://play.google.com/store/apps/details?id=com.kronium.havenly',
+        label: 'View on Google Play',
+      },
+    ],
+    imageShowcase: '/assets/havenly-feature-graphic.png',
+    logo: '/assets/havenly-logo.png',
+    logoStyle: {
+      backgroundColor: '#2962FF',
+      border: '0.2px solid #4D7DFF',
+      boxShadow: '0px 0px 60px 0px #2962FF4D',
+    },
+    spotlight: '/assets/spotlight4.png',
+    tags: [
+      {
+        id: 1,
+        name: 'React Native',
+        path: '/assets/react-native.svg',
+      },
+      {
+        id: 2,
+        name: 'Expo',
+        path: '/assets/expo.svg',
+      },
+      {
+        id: 3,
+        name: 'TypeScript',
+        path: '/assets/typescript.png',
+      },
+    ],
+  },
+  {
     title: 'RAMI Group Website - City, University of London',
     desc: 'This is a website I created and revamped for the RAMI (Robotic, Autonomy and Machine Intelligence) Group of my university, City, University of London. This was done at the behest of Professor Nabil Aouf, Professor of Autonomous Systems and Machine Intelligence, whom I worked very closely with at my time on the Sapience project.',
     subdesc:

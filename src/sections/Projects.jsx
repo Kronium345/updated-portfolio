@@ -7,6 +7,7 @@ import { Center, OrbitControls } from '@react-three/drei';
 import { myProjects } from '../constants/index.js';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import DemoComputer from '../components/DemoComputer.jsx';
+import WebGLBoundary from '../components/WebGLBoundary.jsx'
 
 const projectCount = myProjects.length;
 
@@ -107,6 +108,7 @@ const Projects = () => {
               />
             </a>
           ) : (
+            <WebGLBoundary>
             <Canvas>
               <ambientLight intensity={Math.PI} />
               <directionalLight position={[10, 10, 5]} />
@@ -119,6 +121,7 @@ const Projects = () => {
               </Center>
               <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
             </Canvas>
+            </WebGLBoundary>
           )}
         </div>
       </div>
